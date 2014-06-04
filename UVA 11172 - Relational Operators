@@ -1,0 +1,37 @@
+#include<stdio.h>
+
+int main()
+{
+    int T; signed int a,b,c,j;
+    while(scanf("%d",&T)!=EOF)
+    {
+        j=1;
+        while(j<=T)
+        {
+            scanf("%d%d%d",&a,&b,&c);
+            if(a+b>c&&a+c>b&&b+c>a)
+            {
+                if(a==b&&c==b)
+                {
+                    printf("Case %d: Equilateral\n",j);
+                }
+                else if(a!=b&&a!=c&&b!=c)
+                {
+                    printf("Case %d: Scalene\n",j);
+                }
+                else
+                {
+                    printf("Case %d: Isosceles\n",j);
+                }
+            }
+
+            else
+            {
+                printf("Case %d: Invalid\n",j);
+            }
+
+            j++;
+        }
+    }
+    return 0;
+}
