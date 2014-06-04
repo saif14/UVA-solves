@@ -1,0 +1,39 @@
+//using c++
+#include<iostream>
+using namespace std;
+int main()
+{
+    unsigned long int i,j,carry,remainder,sum;
+    while(cin>>i>>j)
+    {
+      if(!i&&!j)
+        break;
+        carry=0;
+        remainder=0;
+        for(int k=0;k<10;k++)
+        {
+            sum=i%10+j%10+remainder;
+            if(sum>=10)
+            {
+                carry++;
+                remainder=sum/10;
+            }
+            else
+                remainder=0;
+            i=i/10;
+            j=j/10;
+        }
+        if (!carry) {
+            cout << "No carry operation." << endl;
+        } else if (carry == 1) {
+            cout << "1 carry operation." << endl;
+        } else {
+            cout << carry << " carry operations." << endl;
+        }
+
+
+    }
+    return 0;
+
+
+}
