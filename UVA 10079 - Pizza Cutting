@@ -1,0 +1,34 @@
+#include<iostream>
+
+using namespace std;
+long int pizza_recurrence(int);
+
+
+int main()
+{
+    long int no_of_st_ln,no_of_pizz_cut;
+    while(cin>>no_of_st_ln)
+    {
+        if(no_of_st_ln<0)
+            break;
+            no_of_pizz_cut=pizza_recurrence(no_of_st_ln);
+            cout<<no_of_pizz_cut<<endl;
+
+    }
+    return 0;
+
+}
+
+long int pizza_recurrence(int n)
+{
+
+    if(n==0)
+    {
+     return 1;
+    }
+    else
+    {
+        return(n+pizza_recurrence(n-1));
+
+    }
+}
