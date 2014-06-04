@@ -1,0 +1,50 @@
+#include<iostream>
+#include<cstring>
+#include<string>
+
+using namespace std;
+int main()
+{
+    string s,s1,s2;
+    //cout<<"Enter String: ";
+    while(getline(cin,s))
+    {
+        char *cstr = new char[s.length()+1];
+        strcpy(cstr,s.c_str());
+        int i,j=0;
+        for(i=0;; i++)
+        {
+            s1=cstr[i];
+            //cout<<cstr[i]<<endl;
+
+
+            if(cstr[i]=='\0')
+                break;
+
+            if(ispunct(cstr[i]) || isdigit(cstr[i]))
+            {
+                s1=" ";
+            }
+            s2=s2+s1;
+
+        }
+        char *ncstr = new char[s2.length()+1];
+
+        strcpy(ncstr,s2.c_str());
+        char *p= strtok(ncstr," ");
+        j=0;
+        while(p!=0)
+        {
+            j++;
+            //std::cout << p << '\n';
+            p = strtok(NULL," ");
+        }
+        cout<<j<<endl;
+        //delete[] cstr;
+        //delete[] ncstr;
+         s2.resize(0);
+
+
+    }
+    return 0;
+}
