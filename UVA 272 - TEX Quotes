@@ -1,0 +1,47 @@
+#include<iostream>
+#include<cstring>
+#include<string>
+
+using namespace std;
+int main()
+{
+    string s,s1,s2;
+    static int j=1;
+    while(getline(cin,s))
+    {
+        char *cstr = new char[s.length()+1];
+        strcpy(cstr,s.c_str());
+        int i;
+        for(i=0,j;; i++)
+        {
+            s1=cstr[i];
+
+
+
+            if(cstr[i]=='\0')
+                break;
+
+            if(cstr[i]=='\"'&&j%2!=0)
+            {
+                s1="``";
+                s2=s2+s1;
+                j++;
+            }
+            else if(cstr[i]=='\"'&&j%2==0)
+            {
+                s1="''";
+                s2=s2+s1;
+                j++;
+            }
+            else
+            s2=s2+s1;
+
+        }
+        cout<<s2<<endl;
+
+         s2.resize(0);
+
+
+    }
+    return 0;
+}
