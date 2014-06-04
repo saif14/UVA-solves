@@ -1,0 +1,122 @@
+#include<iostream>
+
+using namespace std;
+int main()
+{
+    int i,j,k,l,sum,mod;
+
+    while(cin>>i)
+    {
+        l=i;
+        sum=i;
+        for(i,k=0; i>0;)
+        {
+
+             k=k+(i%3);
+
+            i/=3;
+
+
+            sum+=i;
+
+
+        }
+
+
+        if(k%3==0&&k!=0)
+        {
+
+            for(k; k>=1;)
+            {
+                if(k/3>=1)
+                {
+                    k/=3;
+                    sum+=k;
+                }
+                else
+                    break;
+            }
+
+
+            for(j=1;; j++)
+            {
+                if((k+j)%3==0)
+                {
+                    k+=j;
+                    break;
+                }
+
+            }
+
+
+
+
+
+            if((k/3-j)>=0)
+            {
+                k/=3;
+                sum+=k;
+                k-=j;
+                for(k; k>0;)
+                {
+                    k/=3;
+                    sum+=k;
+                }
+            }
+
+
+
+        }
+        else
+        {
+            if(i==0&&k==0)
+                k=l;
+
+            for(j=1;; j++)
+            {
+
+                if((k+j)%3==0)
+                {
+                    k+=j;
+                    break;
+                }
+
+            }
+
+
+
+
+            if((k/3-j)>=0)
+            {
+                /*k/=3;
+                sum+=k;
+                k-=j;*/
+
+                for(k; k>0;)
+                {
+                    if(k-j<=0)
+                    {
+                        break;
+                    }
+                    k/=3;
+                    sum+=k;
+                }
+
+
+                if(k!=j&&k!=0)
+                    sum--;
+
+            }
+
+
+
+
+        }
+        cout<<sum<<endl;
+
+    }
+
+    return 0;
+
+
+}
